@@ -100,6 +100,13 @@
       margin: 6px 0;
     }
 
+    .grid.compact-final-grid {
+      width: min(390px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+      gap: 3px;
+    }
+
     .tile {
       position: relative;
       aspect-ratio: 1 / 1;
@@ -442,6 +449,7 @@
       brand.classList.toggle("hidden", !current.brand);
 
       grid.innerHTML = "";
+      grid.classList.toggle("compact-final-grid", current.prompt.includes("credible threat to democracy"));
       current.tiles.forEach((tile, i) => {
         const div = document.createElement("div");
         div.className = "tile";
