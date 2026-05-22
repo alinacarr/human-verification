@@ -30,11 +30,11 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      padding: 10px 16px 16px;
+      padding: 6px 10px 10px;
     }
 
     .app {
-      width: min(560px, 100%);
+      width: min(500px, 100%);
       border: 1px solid var(--border);
       background: linear-gradient(180deg, #111, #070707);
       padding: 10px;
@@ -42,13 +42,13 @@
     }
 
     .system-line {
-      font-size: 12px;
+      font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
       border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
-      margin-bottom: 9px;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
     }
 
     h1, h2 {
@@ -58,11 +58,11 @@
     }
 
     h1 {
-      font-size: clamp(20px, 3.2vw, 30px);
+      font-size: clamp(18px, 3vw, 26px);
     }
 
     h2 {
-      font-size: clamp(16px, 2.2vw, 22px);
+      font-size: clamp(15px, 2vw, 20px);
     }
 
     p {
@@ -73,31 +73,31 @@
       font-size: 11px;
       line-height: 1.45;
       color: #888;
-      margin-top: 7px;
+      margin-top: 6px;
     }
 
     .fixed {
       font-size: 11px;
       color: #bdbdbd;
       line-height: 1.45;
-      padding: 7px;
+      padding: 6px;
       border-left: 2px solid #555;
       background: rgba(255,255,255,0.035);
-      margin: 8px 0;
+      margin: 6px 0;
     }
 
     .incorrect {
       min-height: 24px;
       color: var(--error);
-      font-size: 12px;
+      font-size: 10px;
       margin: 14px 0 0;
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-      margin: 8px 0;
+      gap: 4px;
+      margin: 6px 0;
     }
 
     .tile {
@@ -113,7 +113,7 @@
       text-align: center;
       padding: 10px;
       color: #ddd;
-      font-size: 12px;
+      font-size: 10px;
       user-select: none;
       transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease;
     }
@@ -167,10 +167,10 @@
       border: 1px solid #ddd;
       background: #e8e8e8;
       color: #000;
-      padding: 7px 12px;
-      font-size: 12px;
+      padding: 6px 10px;
+      font-size: 10px;
       cursor: pointer;
-      margin-top: 7px;
+      margin-top: 6px;
     }
 
     button:disabled {
@@ -187,12 +187,12 @@
     .banner {
       border: 1px solid var(--ok);
       color: var(--ok);
-      padding: 12px;
+      padding: 8px;
       margin-top: 22px;
       text-align: center;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 10px;
     }
 
     .approval-note {
@@ -205,18 +205,18 @@
 
     .poem-screen h1 {
       font-size: clamp(26px, 4vw, 42px);
-      margin-bottom: 9px;
+      margin-bottom: 8px;
     }
 
     .poem {
-      font-size: clamp(12px, 1.6vw, 15px);
-      line-height: 1.25;
+      font-size: clamp(11px, 1.5vw, 14px);
+      line-height: 1.22;
       color: #efefef;
       max-width: 680px;
     }
 
     .poem p {
-      margin: 0 0 9px;
+      margin: 0 0 7px;
     }
 
     .glitch-word {
@@ -273,7 +273,7 @@
         padding: 14px;
       }
       .app {
-        padding: 12px;
+        padding: 8px;
       }
       .grid {
         grid-template-columns: repeat(2, 1fr);
@@ -283,7 +283,7 @@
 </head>
 <body>
   <main class="app">
-    <div class="system-line">Reinforcement Learning from Human Feedback</div>
+    <div id="systemLine" class="system-line">Reinforcement Learning from Human Feedback</div>
 
     <section id="entry">
       <h1>Verification Required</h1>
@@ -575,6 +575,8 @@
       if (index >= captchas.length) {
         captcha.classList.add("hidden");
         complete.classList.remove("hidden");
+        const systemLine = document.getElementById("systemLine");
+        if (systemLine) systemLine.classList.add("hidden");
         preparePoemGlitch();
       } else {
         renderCaptcha();
